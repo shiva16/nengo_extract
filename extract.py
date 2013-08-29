@@ -32,7 +32,8 @@ class Population:
                     assert max(trans)==min(trans)
                     assert max(trans)<0
                     target=target+'*'
-                self.projections[name].append(('%s'%target, trans[:1], tau))    
+                    trans = trans[:1]
+                self.projections[name].append(('%s'%target, trans, tau))    
     def create_text(self):
         r=['%s, %g, %g, %d, %d'%(self.name, self.tau_rc, self.tau_ref, self.neurons, self.dimensions)]
         for name, proj in sorted(self.projections.items()):
